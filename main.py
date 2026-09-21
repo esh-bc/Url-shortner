@@ -1,8 +1,16 @@
+import asyncio
 import aiohttp
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from config import BOT_TOKEN, API_ID, API_HASH, GPLINKS_API, EARNLINKS_API
 from webserver import keep_alive
+
+# Fix for Python 3.14 — no default event loop on main thread
+try:
+    loop = asyncio.get_event_loop()
+except RuntimeError:
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
 
 app = Client("chain_shortener", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
@@ -30,8 +38,8 @@ async def shorten_earnlinks(session: aiohttp.ClientSession, url: str) -> str:
 # ── Main chain function ───────────────────────────────────────────────────────
 async def chain_shorten(original_url: str) -> str:
     async with aiohttp.ClientSession() as session:
-        step1 = await shorten_gplinks(session, original_url)   # original → gplinks
-        step2 = await shorten_earnlinks(session, step1)        # gplinks  → earnlinks
+        step1 = await shorten_gplinks(session, original_url)
+        step2 = await shorten_earnlinks(session, step1)
     return step2
 
 
