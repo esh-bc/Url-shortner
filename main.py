@@ -2,6 +2,7 @@ import aiohttp
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from config import BOT_TOKEN, API_ID, API_HASH, GPLINKS_API, EARNLINKS_API
+from webserver import keep_alive
 
 app = Client("chain_shortener", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
@@ -58,5 +59,6 @@ async def handle_message(client: Client, message: Message):
 
 # ── Run ───────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
+    keep_alive()
     print("Bot started...")
     app.run()
