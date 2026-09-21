@@ -10,7 +10,7 @@ API_ID = 30439917
 API_HASH = "4f408081dbb976a9943ada5b551288b7"
 
 # Get from https://gplinks.in/member/tools/api
-GPLINKS_API = "YOUR_GPLINKS_API_KEY"
+GPLINKS_API = "98a0a5731212791abba072f5930b95aed4b7a9b6"
 
 # Get from https://earnlinks.in/member/tools/api
 EARNLINKS_API = "a811afe662854e4c5440d091524c909f1ba08edb"
