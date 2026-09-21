@@ -3,7 +3,7 @@
 # ============================================
 
 # Get from @BotFather on Telegram
-BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
+BOT_TOKEN = "8948036520:AAEw82L7J6E38MPvYZSkajqdWpuFL4CP37I"
 
 # Get from https://my.telegram.org
 API_ID = 123456
